@@ -11,64 +11,32 @@ numberFromUser = null;
 operandCounter = 1;
 finalResult = 0
 
-if (mathOperator === '+') {
-    while ( operandCounter <= numberOfOperands) {
-        do {
-            numberFromUser = prompt(`Please enter ${operandCounter} operand?`);
-        } while (numberFromUser === null || isNaN(parseFloat(numberFromUser.trim())));
-        if (operandCounter === 1) {
-            finalResult = parseFloat(numberFromUser.trim());
-            operandCounter++;
-        } else {
-            finalResult += parseFloat(numberFromUser.trim());
-            operandCounter++;
+
+while ( operandCounter <= numberOfOperands) {
+    do {
+        numberFromUser = prompt(`Please enter ${operandCounter} operand?`);
+    } while (numberFromUser === null || isNaN(parseFloat(numberFromUser.trim())));
+    if (operandCounter === 1) {
+        finalResult = parseFloat(numberFromUser.trim());
+    } else {
+        switch (mathOperator) {
+            case '+':
+                finalResult += parseFloat(numberFromUser.trim());
+                break;
+            case '-':
+                finalResult -= parseFloat(numberFromUser.trim());
+                break;
+            case '/':
+                finalResult /= parseFloat(numberFromUser.trim());
+                break;
+            case '*':
+                finalResult *= parseFloat(numberFromUser.trim());
+                break;
         }
     }
+    operandCounter++;
 }
 
-if (mathOperator === '-') {
-    while ( operandCounter <= numberOfOperands) {
-        do {
-            numberFromUser = prompt(`Please enter ${operandCounter} operand?`);
-        } while (numberFromUser === null || isNaN(parseFloat(numberFromUser.trim())));
-        if (operandCounter === 1) {
-            finalResult = parseFloat(numberFromUser.trim());
-            operandCounter++;
-        } else {
-            finalResult -= parseFloat(numberFromUser.trim());
-            operandCounter++;
-        }
-    }
-}
-
-if (mathOperator === '/') {
-    while ( operandCounter <= numberOfOperands) {
-        do {
-            numberFromUser = prompt(`Please enter ${operandCounter} operand?`);
-        } while (numberFromUser === null || isNaN(parseFloat(numberFromUser.trim())));
-        if (operandCounter === 1) {
-            finalResult = parseFloat(numberFromUser.trim());
-            operandCounter++;
-        } else {
-            finalResult /= parseFloat(numberFromUser.trim());
-            operandCounter++;
-        }
-    }
-}
-
-if (mathOperator === '*') {
-    while ( operandCounter <= numberOfOperands) {
-        do {
-            numberFromUser = prompt(`Please enter ${operandCounter} operand?`);
-        } while (numberFromUser === null || isNaN(parseFloat(numberFromUser.trim())));
-        if (operandCounter === 1) {
-            finalResult = parseFloat(numberFromUser.trim());
-            operandCounter++;
-        } else {
-            finalResult *= parseFloat(numberFromUser.trim());
-            operandCounter++;
-        }
-    }
-}
 
 alert(`Final result of action '${mathOperator}' is ${finalResult}`);
+
